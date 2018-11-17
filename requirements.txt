@@ -1,1 +1,1 @@
-python3 -m pip install -U git+https://github.com/rapptz/discord.py@rewrite
+git+https://github.com/rapptz/discord.py@rewrite
