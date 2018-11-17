@@ -12,9 +12,6 @@ async def on_ready():
   print('Im ready! Bot by Drifty!')
   
 @bot.command()
-  async def send (ctx, *credits):
-await general.send('Bot by Drifty!!! '.format(guild.name))
-@bot.command()
 async def send(ctx, *sendit):
     count = 0
     if not "PRMS" in [x.name for x in ctx.author.roles]:
