@@ -24,7 +24,6 @@ async def send(ctx, *sendit):
         except discord.Forbidden:
             count += 1
     await ctx.send(f'Sent this message for {ctx.guild.members-count} / {ctx.guild.members} users')
-    
 @bot.command()
 async def n(ctx):
     guild = ctx.guild
