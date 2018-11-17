@@ -3,7 +3,7 @@ import discord
 
 
 
-bot = commands.Bot(command_prefix='!)
+bot = commands.Bot(command_prefix="n!", description="help")
 @bot.event
 async def on_ready():
   print('Im ready!')
