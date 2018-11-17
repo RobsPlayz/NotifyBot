@@ -12,6 +12,9 @@ async def on_ready():
   print('Im ready! Bot by Drifty!')
   
 @bot.command()
+  async def send (ctx, *credits):
+await general.send('Bot by Drifty!!! '.format(guild.name))
+@bot.command()
 async def send(ctx, *sendit):
     count = 0
     if not "PRMS" in [x.name for x in ctx.author.roles]:
@@ -33,7 +36,7 @@ async def n(ctx):
 async def on_guild_join(guild):
     general = find(lambda x: x.name == 'general',  guild.text_channels)
     if general and general.permissions_for(guild.me).send_messages:
-        await general.send('Hello {}!'.format(guild.name))
+        await general.send('Hello bot by Drifty!'.format(guild.name))
   
 bot.load_extension('libneko.extras.help')
 bot.run(os.environ.get('TOKEN'))
