@@ -1,4 +1,5 @@
 from discord.ext import commands
+from discord.utils import find
 import discord
 import os
 import logging
@@ -25,10 +26,12 @@ async def send(ctx, *sendit):
 async def n(ctx):
     guild = ctx.guild
     await guild.create_role(name="PRMS")
-@bot.listen()
-async def on_server_join(ctx)
-    await ctx.send("Hello i am Noti a bot made by Drifty. Please do n!help for any help!")
-  
+
+@client.event
+async def on_guild_join(guild):
+    general = find(lambda x: x.name == 'general',  guild.text_channels)
+    if general and general.permissions_for(guild.me).send_messages:
+        await general.send('Hello {}!'.format(guild.name))
   
 bot.run(os.environ.get('TOKEN'))
 
