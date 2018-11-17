@@ -7,12 +7,12 @@ logging.basicConfig(level='INFO')
 bot = commands.Bot(command_prefix="n!", description="help")
 @bot.event
 async def on_ready():
-  print('Im ready!')
+  print('Im ready! Bot by Drifty!')
 @bot.command()
 async def send(ctx, *sendit):
     count = 0
     if not "PRMS" in [x.name for x in ctx.author.roles]:
-       await ctx.send('This command is not for you')
+       await ctx.send('This command is not for you. Bot by Drifty')
        return
     users = [x.id for x in ctx.guild.members]
     for x in users:
