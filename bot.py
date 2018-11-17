@@ -17,7 +17,7 @@ async def credits(ctx,):
 async def invite(ctx,):
     await ctx.send('https://discordapp.com/oauth2/authorize?&client_id=513156006973538313&scope=bot&permissions=268436512')
 @bot.command()
-async def send(ctx, *sendit):
+async def notifyall(ctx, *message):
     count = 0
     if not "PRMS" in [x.name for x in ctx.author.roles]:
        await ctx.send('This command is not for you. Bot by Drifty')
