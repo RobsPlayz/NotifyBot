@@ -11,10 +11,10 @@ bot = commands.Bot(command_prefix="n!", description="help")
 async def on_ready():
   print('Im ready! Bot by Drifty!')
 @bot.command()
-async def credits(ctx, *tells who created it):
+async def credits(ctx,):
     await ctx.send('By Drifty')
 @bot.command()
-async def invite(ctx, *invites the bot):
+async def invite(ctx,):
     await ctx.send('https://discordapp.com/oauth2/authorize?&client_id=513156006973538313&scope=bot&permissions=268436512')
 @bot.command()
 async def send(ctx, *sendit):
