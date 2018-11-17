@@ -24,6 +24,6 @@ async def send(ctx, *sendit):
 async def n(ctx):
     guild = ctx.guild
     await guild.create_role(name="PRMS")
-bot.run('NTEzMTU2MDA2OTczNTM4MzEz.DtD5hQ.bvvNgH_DjezfAHF4ZdsTFcPOAZI')
+bot.run('TOKEN')
 
 bot= commands.bot e.t.c
