@@ -1,4 +1,4 @@
 git+https://github.com/rapptz/discord.py@rewrite
 git+https://gitlab.com/koyagami/libneko
 aiofiles
-opus
+git+https://github.com/xiph/opus
