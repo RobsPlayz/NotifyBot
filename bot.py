@@ -1,7 +1,9 @@
 from discord.ext import commands
 import discord
+import os
 
-
+... your commands
+bot.run(os.environ.get('TOKEN'))
 
 bot = commands.Bot(command_prefix="n!", description="help")
 @bot.event
