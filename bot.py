@@ -26,4 +26,6 @@ async def n(ctx):
     await guild.create_role(name="PRMS")
 bot.run('TOKEN')
 
-bot= commands.bot e.t.c
+
+
+
