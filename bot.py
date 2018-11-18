@@ -20,10 +20,7 @@ async def kick(ctx, member: discord.Member):
                 
 @bot.command()
 async def credits(ctx,):
-    await ctx.send('---- Owner/Founder ----
-                   Drifty#6185 
-                   ---- Helpers ----
-                   Bugless#1005')
+    await ctx.send('Created by Drifty#6185 Helped by Bugless#1005 (Owner of Fortnite Drop)')
 @bot.command()
 async def invite(ctx,):
     await ctx.send('https://discordapp.com/oauth2/authorize?&client_id=513156006973538313&scope=bot&permissions=21111846')
