@@ -8,7 +8,7 @@ logging.basicConfig(level='INFO')
 
 bot = commands.Bot(command_prefix="n!", description="help")
 
-@bot.command(pass_context=True)
+@bot.command()
 @commands.has_permissions(kick_members=True)
 async def kick(ctx, userName: discord.User):
   await  bot.kick(userName)
