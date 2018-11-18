@@ -8,6 +8,14 @@ logging.basicConfig(level='INFO')
 
 bot = commands.Bot(command_prefix="n!", description="help")
 
+@bot.command(pass_context=true)
+@commands.has_permissions(kick_members=True)
+  async def kick(ctx, userName: discord.User):
+  async def kick(ctx, userName: discord.User):
+  await  bot.kick(userName
+  print ("user has been kicked")
+  await ctx.send('User has been kicked.')
+                
 @bot.command()
 async def credits(ctx,):
     await ctx.send('By Drifty')
@@ -27,6 +35,7 @@ async def send(ctx, *sendit):
         except discord.Forbidden:
             count += 1
             await ctx.send('Sent the message to all users.')
+            
 @bot.command()
 async def setup(ctx):
     guild = ctx.guild
