@@ -3,8 +3,22 @@ from discord.utils import find
 import discord
 import os
 import logging
+import asyncio
+
+client=discord.Client()
+
+@client.event
+async def on_ready():
+    print('logged in as')
+    print(client.user.name)
+    print(client.user.id)
+    print('-----')
+
 
 logging.basicConfig(level='INFO')
+
+newUserMessage = "A New user has joined!" # customise this to the message you want to send new users
+
 
 bot = commands.Bot(command_prefix="n!", description="help")
 @bot.command()
