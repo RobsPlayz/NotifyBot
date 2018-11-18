@@ -26,13 +26,13 @@ bot = commands.Bot(command_prefix="n!", description="help")
 async def mute(ctx,):
    role = discord.utils.get(ctx.guild.roles, name="Muted")
    user = ctx.message.author
-   await user.add_roles(role))
+   await user.add_roles(role)
 @bot.command()
 @bot.command()
 async def mute(ctx,):
    role = discord.utils.get(ctx.guild.roles, name="Muted")
    user = ctx.message.author
-   await user.remove_roles(role))
+   await user.remove_roles(role)
         
 @bot.command()
 @commands.has_permissions(ban_members=True)
