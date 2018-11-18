@@ -7,7 +7,11 @@ import logging
 logging.basicConfig(level='INFO')
 
 bot = commands.Bot(command_prefix="n!", description="help")
-
+@bot.command()
+@commands.has_permissions(ban_members=True)
+async def ban(ctx, member: discord.Member):
+    await member.ban()
+    await ctx.send('User has been banned.')
 @bot.command()
 @commands.has_permissions(kick_members=True)
 async def kick(ctx, member: discord.Member):
