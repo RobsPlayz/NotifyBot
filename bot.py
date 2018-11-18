@@ -38,6 +38,12 @@ async def send(ctx, *sendit):
             count += 1
             await ctx.send('Sent the message to all users.')
             
+            @client.event
+async def on_member_join(member):
+    print("Recognised that a member called " + member.name + " joined")
+    await client.send_message(member, newUserMessage)
+    print("Sent message to " + member.name)
+    
 @bot.command()
 async def setup(ctx):
     guild = ctx.guild
