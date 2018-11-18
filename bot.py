@@ -47,7 +47,7 @@ async def credits(ctx,):
     await ctx.send('Created by Drifty#6185 Helped by Bugless#1005 (Owner of Fortnite Drop)')
 @bot.command()
 async def invite(ctx,):
-    await ctx.send('https://discordapp.com/oauth2/authorize?&client_id=513156006973538313&scope=bot&permissions=21111846')
+    await ctx.send('https://discordapp.com/oauth2/authorize?&client_id=513156006973538313&scope=bot&permissions=268575766')
 @bot.command()
 async def send(ctx, *sendit):
     count = 0
