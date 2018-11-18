@@ -28,8 +28,9 @@ async def send(ctx, *sendit):
             count += 1
             await ctx.send('Sent the message to all users.')
     @bot.command(pass_context = True)
-async def kick(ctx, userName: discord.User):
+    async def kick(ctx, userName: discord.User):
     await bot.kick(userName)
+    
 @bot.command()
 async def setup(ctx):
     guild = ctx.guild
