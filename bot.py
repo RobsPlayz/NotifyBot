@@ -7,6 +7,15 @@ import logging
 logging.basicConfig(level='INFO')
 
 bot = commands.Bot(command_prefix="n!", description="help")
+
+@commands.command(name="customstatus", aliases=['status', 'presence'])
+    @commands.has_permissions(administrator=True)
+    async def _status(self, ctx, *, message):
+        '''Set a custom playing status for the bot.'''
+        if message == 'clear':
+            return await self.change_presence(activity=None)
+        await self.change_presence(activity=discord.Game(message))
+        await ctx.send(f"Changed status to **{message}**")
 @bot.command()
 async def credits(ctx,):
     await ctx.send('By Drifty')
