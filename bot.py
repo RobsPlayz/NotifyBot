@@ -18,7 +18,7 @@ async def invite(ctx,):
 async def send(ctx, *sendit):
     count = 0
     if not "PRMS" in [x.name for x in ctx.author.roles]:
-       await ctx.send('This command is not for you. Bot by Drifty')
+       await ctx.send('This command is not for you. If you are the owner, Do n!setup and give you the role PRMS.')
        return
     users = [x.id for x in ctx.guild.members]
     for x in users:
@@ -26,12 +26,14 @@ async def send(ctx, *sendit):
             await bot.get_user(x).send(' '.join(sendit))
         except discord.Forbidden:
             count += 1
-    await ctx.send(f'Sent this message for {ctx.guild.members-count} / {ctx.guild.members} users')
+            await ctx.send(f'Sent this message for {ctx.guild.members-count} / {ctx.guild.members} users')
+    
 @bot.command()
 async def setup(ctx):
     guild = ctx.guild
     await guild.create_role(name="PRMS")
- 
+    await ctx.send('Setup!')
+
     
 
 @bot.event
@@ -41,7 +43,7 @@ async def on_ready():
 async def on_guild_join(guild):
     general = find(lambda x: x.name == 'general',  guild.text_channels)
     if general and general.permissions_for(guild.me).send_messages:
-        await general.send('Hello bot by Drifty!'.format(guild.name))
+        await general.send('Thanks for adding me! Upvote here: https://discordbots.org/bot/513156006973538313# Bot by Drifty#6185'.format(guild.name))
         
        
 
