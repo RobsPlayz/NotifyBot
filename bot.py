@@ -23,13 +23,16 @@ newUserMessage = "A New user has joined!" # customise this to the message you wa
 bot = commands.Bot(command_prefix="n!", description="help")
 
 @bot.command()
-async def mute(member: discord.Member):
-	await bot.server_voice_state(member,mute=True)
-	await bot.say('{} has been muted.'.format(member.mention))
+async def mute(ctx,):
+   role = discord.utils.get(ctx.guild.roles, name="Muted")
+   user = ctx.message.author
+   await user.add_roles(role))
 @bot.command()
-async def unmute(member: discord.Member):
-	await bot.server_voice_state(member,mute=False)
-	await bot.say('{} has been unmuted.'.format(member.mention))
+@bot.command()
+async def mute(ctx,):
+   role = discord.utils.get(ctx.guild.roles, name="Muted")
+   user = ctx.message.author
+   await user.remove_roles(role))
         
 @bot.command()
 @commands.has_permissions(ban_members=True)
@@ -72,18 +75,21 @@ async def on_member_join(member):
 async def setup(ctx):
     guild = ctx.guild
     await guild.create_role(name="PRMS")
+    await guild.create_role(name="Muted")
     await ctx.send('Setup!')
 
 async def on_guild_join(guild):
     general = find(lambda x: x.name == 'general',  guild.text_channels)
     if general and general.permissions_for(guild.me).send_messages:
-        await general.send('Thanks for adding me! Upvote here: https://discordbots.org/bot/513156006973538313# Bot by Drifty#6185'.format(guild.name))
-        guild = ctx.guild
+        await general.send('Thanks for adding me! Upvote here: https://discordbots.org/bot/513156006973538313'.format(guild.name))guild = ctx.guild
         await guild.create_role(name="Muted")
         await guild.create_role(name="PRMS")
-        await ctx.send('Setup!')
+        await ctx.send('Auto-Setup!')
 				
 bot.load_extension('libneko.extras.help')
 bot.run(os.environ.get('TOKEN'))
 
-
+##Code thats unused
+##role = discord.utils.get(ctx.guild.roles, name="role to add name")
+##user = ctx.message.author
+##await user.add_roles(role)
