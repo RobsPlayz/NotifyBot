@@ -28,8 +28,7 @@ async def mute(ctx,):
    user = ctx.message.author
    await user.add_roles(role)
 @bot.command()
-@bot.command()
-async def mute(ctx,):
+async def unmute(ctx,):
    role = discord.utils.get(ctx.guild.roles, name="Muted")
    user = ctx.message.author
    await user.remove_roles(role)
