@@ -10,9 +10,9 @@ bot = commands.Bot(command_prefix="n!", description="help")
 
 @bot.command()
 @commands.has_permissions(kick_members=True)
-async def kick(ctx, userName: discord.User):
-  await  bot.kick(userName)
-  await ctx.send('User has been kicked.')
+async def kick(ctx, member: discord.User):
+    await member.kick()
+    await ctx.send('User has been kicked.')
                 
 @bot.command()
 async def credits(ctx,):
