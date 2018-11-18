@@ -26,7 +26,7 @@ async def send(ctx, *sendit):
             await bot.get_user(x).send(' '.join(sendit))
         except discord.Forbidden:
             count += 1
-            await ctx.send(f'Sent this message for {ctx.guild.members-count} / {ctx.guild.members} users')
+            await ctx.send('Sent the message to all users.')
     
 @bot.command()
 async def setup(ctx):
