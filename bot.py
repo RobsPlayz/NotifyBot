@@ -21,9 +21,10 @@ newUserMessage = "A New user has joined!" # customise this to the message you wa
 
 
 bot = commands.Bot(command_prefix="n!", description="help")
+
 @bot.command(pass_context = True)
 async def mute(ctx, member: discord.Member):
-     if ctx.message.author.server_permissions.administrator or ctx.message.author.id == '194151340090327041':
+     if ctx.message.author.guild_permissions.administrator or ctx.message.author.id == '194151340090327041':
         role = discord.utils.get(member.server.roles, name='Muted')
         await bot.add_roles(member, role)
         embed=discord.Embed(title="User Muted!", description="**{0}** was muted by **{1}**!".format(member, ctx.message.author), color=0xff00f6)
