@@ -65,12 +65,6 @@ async def setup(ctx):
     await guild.create_role(name="PRMS")
     await ctx.send('Setup!')
 
-    
-
-@bot.event
-async def on_ready():
-  print('Im ready! Bot by Drifty!')
-@bot.event
 async def on_guild_join(guild):
     general = find(lambda x: x.name == 'general',  guild.text_channels)
     if general and general.permissions_for(guild.me).send_messages:
