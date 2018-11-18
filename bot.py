@@ -34,6 +34,8 @@ async def setup(ctx):
  
     
 @bot.event
+await bot.send_message(message.channel, '{} has joined.'.format(user.name))
+@bot.event
 async def on_ready():
   print('Im ready! Bot by Drifty!')
 @bot.event
