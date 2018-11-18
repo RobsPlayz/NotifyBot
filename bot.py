@@ -79,10 +79,9 @@ async def setup(ctx):
     await ctx.send('Setup!')
 
 async def on_guild_join(guild):
-    general = find(lambda x: x.name == 'general',  guild.text_channels)
-    if general and general.permissions_for(guild.me).send_messages:
+    general = find(lambda x: x.name == 'general',  ctx.guild.text_channels)
+    if general and general.permissions_for(ctx.guild.me).send_messages:
         await general.send('Thanks for adding me! Upvote here: https://discordbots.org/bot/513156006973538313 Support here:'.format(guild.name))
-	guild = ctx.guild
         await guild.create_role(name="Muted")
         await guild.create_role(name="PRMS")
         await ctx.send('Auto-Setup!')
