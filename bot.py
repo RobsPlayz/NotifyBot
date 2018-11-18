@@ -7,10 +7,6 @@ import logging
 logging.basicConfig(level='INFO')
 
 bot = commands.Bot(command_prefix="n!", description="help")
-
-@bot.event
-async def on_ready():
-  print('Im ready! Bot by Drifty!')
 @bot.command()
 async def credits(ctx,):
     await ctx.send('By Drifty')
@@ -31,10 +27,14 @@ async def send(ctx, *sendit):
             count += 1
     await ctx.send(f'Sent this message for {ctx.guild.members-count} / {ctx.guild.members} users')
 @bot.command()
-async def n(ctx):
+async def setup(ctx):
     guild = ctx.guild
     await guild.create_role(name="PRMS")
-
+    
+    
+@bot.event
+async def on_ready():
+  print('Im ready! Bot by Drifty!')
 @bot.event
 async def on_guild_join(guild):
     general = find(lambda x: x.name == 'general',  guild.text_channels)
