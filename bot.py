@@ -10,9 +10,6 @@ bot = commands.Bot(command_prefix="n!", description="help")
 
 @bot.command()
 async def credits(ctx,):
-    await ctx.send('Pong! `100,000,000,000ms`)
-@bot.command()
-async def credits(ctx,):
     await ctx.send('By Drifty')
 @bot.command()
 async def invite(ctx,):
