@@ -21,6 +21,7 @@ newUserMessage = "A New user has joined!" # customise this to the message you wa
 
 
 bot = commands.Bot(command_prefix="n!", description="help")
+
 @bot.command()
 @commands.has_permissions(ban_members=True)
 async def ban(ctx, member: discord.Member):
@@ -52,7 +53,7 @@ async def send(ctx, *sendit):
             count += 1
             await ctx.send('Sent the message to all users.')
             
-            @client.event
+@client.event
 async def on_member_join(member):
     print("Recognised that a member called " + member.name + " joined")
     await client.send_message(member, newUserMessage)
