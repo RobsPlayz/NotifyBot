@@ -27,13 +27,11 @@ async def send(ctx, *sendit):
         except discord.Forbidden:
             count += 1
     await ctx.send(f'Sent this message for {ctx.guild.members-count} / {ctx.guild.members} users')
-    await ctx.send('Sent!)
 @bot.command()
 async def setup(ctx):
     guild = ctx.guild
     await guild.create_role(name="PRMS")
-     await ctx.send('Setup!)
-    
+ 
     
 @bot.event
 async def on_ready():
