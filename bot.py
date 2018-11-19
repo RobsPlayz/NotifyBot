@@ -4,6 +4,7 @@ import discord
 import os
 import logging
 import asyncio
+import random
 
 client=discord.Client()
 
@@ -69,7 +70,19 @@ async def on_member_join(member):
     print("Recognised that a member called " + member.name + " joined")
     await client.send_message(member, newUserMessage)
     print("Sent message to " + member.name)
+
+@bot.command()
+alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?!="
+num = int(input("How long should your password be?\n"))
+password = []
+for i in range(num):
+    randomint = random.randint(0, 64)
+    password.append(alphabet[randomint])
     
+result = "".join(password)
+    
+print("Your random generated password is:\n" + result)
+
 @bot.command()
 async def setup(ctx):
     guild = ctx.guild
