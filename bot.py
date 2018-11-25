@@ -110,6 +110,7 @@ async def setup(ctx):
     await guild.create_role(name="PRMS")
     await guild.create_role(name="Muted")
     await ctx.send('Setup!')
+    await ctx.message.add_reaction('✔')
 
 async def on_guild_join(guild):
     general = find(lambda x: x.name == 'general',  ctx.guild.text_channels)
