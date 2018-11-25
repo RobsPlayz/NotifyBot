@@ -8,8 +8,8 @@ import random
 import sys, traceback
 
 client=discord.Client()
-##START OF MAYBECRASH
 
+#hhh#
 class MembersCog:
     def __init__(self, bot):
         self.bot = bot
@@ -60,9 +60,61 @@ class MembersCog:
 # The setup fucntion below is neccesarry. Remember we give bot.add_cog() the name of the class in this case MembersCog.
 # When we load the cog, we use the name of the file.
 def setup(bot):
-    bot.add_cog(MembersCog(bot)) 
+    bot.add_cog(MembersCog(bot))
+ cogs.owner.py
+from discord.ext import commands
 
-##END OF MAYBECRASH
+
+class OwnerCog:
+
+    def __init__(self, bot):
+        self.bot = bot
+    
+    # Hidden means it won't show up on the default help.
+@commands.command(name='load', hidden=True)
+    @commands.is_owner()
+    async def cog_load(self, ctx, *, cog: str):
+        """Command which Loads a Module.
+        Remember to use dot path. e.g: cogs.owner"""
+
+        try:
+            self.bot.load_extension(cog)
+        except Exception as e:
+            await ctx.send(f'**`ERROR:`** {type(e).__name__} - {e}')
+        else:
+            await ctx.send('**`SUCCESS`**')
+
+@commands.command(name='unload', hidden=True)
+    @commands.is_owner()
+    async def cog_unload(self, ctx, *, cog: str):
+        """Command which Unloads a Module.
+        Remember to use dot path. e.g: cogs.owner"""
+
+        try:
+            self.bot.unload_extension(cog)
+        except Exception as e:
+            await ctx.send(f'**`ERROR:`** {type(e).__name__} - {e}')
+        else:
+            await ctx.send('**`SUCCESS`**')
+
+@commands.command(name='reload', hidden=True)
+    @commands.is_owner()
+    async def cog_reload(self, ctx, *, cog: str):
+        """Command which Reloads a Module.
+        Remember to use dot path. e.g: cogs.owner"""
+
+        try:
+            self.bot.unload_extension(cog)
+            self.bot.load_extension(cog)
+        except Exception as e:
+            await ctx.send(f'**`ERROR:`** {type(e).__name__} - {e}')
+        else:
+            await ctx.send('**`SUCCESS`**')
+
+
+def setup(bot):
+    bot.add_cog(OwnerCog(bot))
+#hhh#
 
 def get_prefix(bot, message):
     """A callable Prefix for our bot. This could be edited to allow per server prefixes."""
