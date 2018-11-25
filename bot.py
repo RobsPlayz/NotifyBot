@@ -63,7 +63,7 @@ async def on_ready():
     print(f'\n\nLogged in as: {bot.user.name} - {bot.user.id}\nVersion: {discord.__version__}\n')
 
     # Changes our bots Playing Status. type=1(streaming) for a standard game you could remove type and url.
-    await bot.change_presence(game=discord.Activity(name='Cogs Example', type=1, url='https://twitch.tv/kraken'))
+    await bot.change_presence(game=discord.activity(name='Cogs Example', type=1, url='https://twitch.tv/kraken'))
     print(f'Successfully logged in and booted...!')
 
 logging.basicConfig(level='INFO')
