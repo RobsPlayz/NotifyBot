@@ -31,7 +31,7 @@ initial_extensions = ['cogs.simple',
                       'cogs.members',
                       'cogs.owner']
 
-bot = commands.Bot(command_prefix=get_prefix, description='A Rewrite Cog Example')
+bot = commands.Bot(command_prefix=get_prefix, description='help')
 
 # Here we load our extensions(cogs) listed above in [initial_extensions].
 if __name__ == '__main__':
@@ -62,23 +62,26 @@ async def mute(ctx,):
    role = discord.utils.get(ctx.guild.roles, name="Muted")
    user = ctx.message.author
    await user.add_roles(role)
+   await ctx.message.add_reaction('✅')
 @bot.command()
 async def unmute(ctx,):
    role = discord.utils.get(ctx.guild.roles, name="Muted")
    user = ctx.message.author
    await user.remove_roles(role)
+   await ctx.message.add_reaction('✅')
         
 @bot.command()
 @commands.has_permissions(ban_members=True)
 async def ban(ctx, member: discord.Member):
     await member.ban()
     await ctx.send('User has been banned.')
+    await ctx.message.add_reaction('✅')
 @bot.command()
 @commands.has_permissions(kick_members=True)
 async def kick(ctx, member: discord.Member):
     await member.kick()
     await ctx.send('User has been kicked.')
-                
+    await ctx.message.add_reaction('✅')             
 @bot.command()
 async def credits(ctx,):
     await ctx.send('Created by Drifty#6185 Helped by Bugless#1005 (Owner of Fortnite Drop)')
@@ -90,6 +93,7 @@ async def send(ctx, *sendit):
     count = 0
     if not "PRMS" in [x.name for x in ctx.author.roles]:
        await ctx.send('This command is not for you. If you are the owner, Do n!setup and give you the role PRMS.')
+       await ctx.message.add_reaction('❌')
        return
     users = [x.id for x in ctx.guild.members]
     for x in users:
@@ -97,7 +101,8 @@ async def send(ctx, *sendit):
             await bot.get_user(x).send(' '.join(sendit))
         except discord.Forbidden:
             count += 1
-            await ctx.send('Sent the message to all users.')
+            await ctx.send('Sending message to all users...')
+	    await ctx.message.add_reaction('✅')
             
 @client.event
 async def on_member_join(member):
