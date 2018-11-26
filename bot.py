@@ -105,7 +105,6 @@ async def send(ctx, *sendit):
         except discord.Forbidden:
             count += 1
             await ctx.send('Sending message to all users...')
-	    await ctx.message.add_reaction('✅')
 
             
 @client.event
