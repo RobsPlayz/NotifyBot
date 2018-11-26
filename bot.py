@@ -71,6 +71,14 @@ async def unmute(ctx,):
    user = ctx.message.author
    await user.remove_roles(role)
    await ctx.message.add_reaction('✅')
+
+	##unused for some reason @bot.is_owner()##
+@bot.command()
+@commands.is_owner()
+async def okick(ctx, member: discord.Member):
+    await member.kick()
+    await ctx.send('User has been kicked.')
+    await ctx.message.add_reaction('✅')
         
 @bot.command()
 @commands.has_permissions(ban_members=True)
